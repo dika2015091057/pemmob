@@ -14,23 +14,118 @@ class pertemuan10 extends StatefulWidget {
 }
 
 class _pertemuan10State extends State<pertemuan10> {
-  int nomer = 1;
-  int umur = 21;
   TextEditingController input1 = TextEditingController();
   TextEditingController input2 = TextEditingController();
   TextEditingController output1 = TextEditingController();
+  TextEditingController output2 = TextEditingController();
 
   void tambahkan() {
     int angka1 = int.parse(input1.text);
     int angka2 = int.parse(input2.text);
-    int hasil = angka1 + angka2;
-    output1.text = hasil.toString();
+    int hasil1 = angka1 + angka2;
+
+    String berbilang = '';
+    if (hasil1 == 1) {
+      berbilang = "satu";
+    } else if (hasil1 == 2) {
+      berbilang = "dua";
+    } else if (hasil1 == 3) {
+      berbilang = "tiga";
+    } else if (hasil1 == 100) {
+      berbilang = "seratus";
+    } else if (hasil1 == 97) {
+      berbilang = "sembilan puluh tujuh";
+    } else if (hasil1 == 50) {
+      berbilang = "lima puluh";
+    } else {
+      berbilang = "hasilnya " + hasil1.toString();
+    }
+    output1.text = hasil1.toString();
+    output2.text = berbilang;
+  }
+
+  void kurang() {
+    int angka1 = int.parse(input1.text);
+    int angka2 = int.parse(input2.text);
+    int hasil1 = angka1 - angka2;
+
+    String berbilang = '';
+    if (hasil1 == 1) {
+      berbilang = "satu";
+    } else if (hasil1 == 2) {
+      berbilang = "dua";
+    } else if (hasil1 == 3) {
+      berbilang = "tiga";
+    } else if (hasil1 == 100) {
+      berbilang = "seratus";
+    } else if (hasil1 == 97) {
+      berbilang = "sembilan puluh tujuh";
+    } else if (hasil1 == 50) {
+      berbilang = "lima puluh";
+    } else {
+      berbilang = "hasilnya " + hasil1.toString();
+    }
+    output1.text = hasil1.toString();
+    output2.text = berbilang;
+  }
+
+  void kali() {
+    int angka1 = int.parse(input1.text);
+    int angka2 = int.parse(input2.text);
+    int hasil1 = angka1 * angka2;
+
+    String berbilang = '';
+    if (hasil1 == 1) {
+      berbilang = "satu";
+    } else if (hasil1 == 2) {
+      berbilang = "dua";
+    } else if (hasil1 == 3) {
+      berbilang = "tiga";
+    } else if (hasil1 == 100) {
+      berbilang = "seratus";
+    } else if (hasil1 == 97) {
+      berbilang = "sembilan puluh tujuh";
+    } else if (hasil1 == 50) {
+      berbilang = "lima puluh";
+    } else {
+      berbilang = "hasilnya " + hasil1.toString();
+    }
+    output1.text = hasil1.toString();
+    output2.text = berbilang;
+  }
+
+  void bagi() {
+    int angka1 = int.parse(input1.text);
+    int angka2 = int.parse(input2.text);
+    double hasil1 = angka1 / angka2;
+
+    String berbilang = '';
+    if (hasil1 == 1) {
+      berbilang = "satu";
+    } else if (hasil1 == 2) {
+      berbilang = "dua";
+    } else if (hasil1 == 3) {
+      berbilang = "tiga";
+    } else if (hasil1 == 100) {
+      berbilang = "seratus";
+    } else if (hasil1 == 97) {
+      berbilang = "sembilan puluh tujuh";
+    } else if (hasil1 == 50) {
+      berbilang = "lima puluh";
+    } else {
+      berbilang = "hasilnya " + hasil1.toString();
+    }
+    output1.text = hasil1.toString();
+    output2.text = berbilang;
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: Text('2015091059'),
+        ),
         body: Column(
           children: [
             TextField(
@@ -44,15 +139,39 @@ class _pertemuan10State extends State<pertemuan10> {
                   border: OutlineInputBorder(),
                   hintText: "masukkan angka ke 2"),
             ),
-            ElevatedButton(
-                onPressed: () {
-                  tambahkan();
-                },
-                child: Text('tambah')),
+            Row(
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      tambahkan();
+                    },
+                    child: Text('tambah')),
+                ElevatedButton(
+                    onPressed: () {
+                      kurang();
+                    },
+                    child: Text('kurang')),
+                ElevatedButton(
+                    onPressed: () {
+                      kali();
+                    },
+                    child: Text("kali")),
+                ElevatedButton(
+                    onPressed: () {
+                      bagi();
+                    },
+                    child: Text('bagi')),
+              ],
+            ),
             TextField(
               controller: output1,
               decoration: InputDecoration(
                   border: OutlineInputBorder(), hintText: "hasil penjumlahan"),
+            ),
+            TextField(
+              controller: output2,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), hintText: "bilangan berbilang"),
             ),
           ],
         ),
